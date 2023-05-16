@@ -1,52 +1,74 @@
-# Prerequisites
-*.d
+# Visual Studio / Rider / VS Code
+.vscode/
+*.sln.iml
+*.suo
+*.user
+*.userosscache
+*.sln.ide
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+# NuGet
+*.nuget.props
+*.nuget.targets
+*.nuget.cache
 
-# Linker output
-*.ilk
-*.map
-*.exp
+# Build output
+bin/
+obj/
 
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
+# .NET Core
 *.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
 *.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
 *.pdb
+*.dll.config
+*.json
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+# User-specific files
+*.dotsettings
+*.dotsettings.user
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio IntelliSense cache
+.vs/
+.vscode/
+.vscode-test/
+
+# Resharper cache/temporary files
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.swp
+*.[Cc]ache
+[Cc]ache/
+[Tt]est[Rr]esult*
+[Nn]ode[Tt]est[Bb]rowser[Tt]ests/
+.idea/
+
+# SQL Server files
+*.mdf
+*.ldf
+
+# Docker
+.dockerignore
+docker-compose.yml
+docker-compose.override.yml
+docker-compose.vs.debug.yml
+.vsdbg/
+
+# Publishing
+_PublishedWebsites/
+pubxml/
+*.Publish.xml
+*.pubxml
+*.pubxml.user
