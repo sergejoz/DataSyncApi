@@ -21,21 +21,22 @@ namespace DataSyncApi.Services
             var statusList = new List<DatasetStatus>();
 
             foreach (var dataset in datasets)
-            { 
-                statusList.Add(GetDatasetStatus(dataset));
+            {
+                var status = await GetDatasetStatus(dataset);
+                statusList.Add(status);
             }
 
             return statusList;
         }
 
-        public DatasetStatus GetDatasetStatus(Dataset dataset)
+        public async Task<DatasetStatus> GetDatasetStatus(Dataset dataset)
         {
             // Здесь должна быть реализация
 
             // Для тестирования добавим задержку и рандомный результат
             var random = new Random();
             var delayMinutes = random.Next(2, 7);
-            Task.Delay(TimeSpan.FromMinutes(delayMinutes)); // Задержка (для имитации длительной операции)
+            await Task.Delay(TimeSpan.FromMinutes(delayMinutes)); // Задержка (для имитации длительной операции)
 
             // Генерация рандомных статусов для каждого набора данных
             var status = random.Next(0, 2) == 0 ? StatusType.Success : StatusType.Error;

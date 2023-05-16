@@ -1,4 +1,5 @@
-﻿using DataSyncApi.Interfaces;
+﻿using System.Diagnostics;
+using DataSyncApi.Interfaces;
 using DataSyncApi.Models;
 using DataSyncApi.Services;
 using Moq;
@@ -17,10 +18,8 @@ namespace DataSyncApi.Tests
             _dataLoader = new DataLoader(_datasetRepositoryMock.Object);
         }
 
-        [Test]
-        public async Task GetDatasetsStatusAsync_ShouldReturnDatasetStatuses()
+        private List<Dataset> CreateDataSet()
         {
-            // Arrange
             var datasets = new List<Dataset>
         {
             new Dataset { Id = 1, Name = "Dataset 1" },
@@ -29,6 +28,19 @@ namespace DataSyncApi.Tests
         };
 
             _datasetRepositoryMock.Setup(repo => repo.GetDatasets()).ReturnsAsync(datasets);
+
+            return datasets;
+        }
+
+        /// <summary>
+        /// Тест на результаты
+        /// </summary>
+        /// <returns></returns>
+        [Test]
+        public async Task GetDatasetsStatusAsync_ShouldReturnDatasetStatuses()
+        {
+            // Arrange
+            var datasets = CreateDataSet();
 
             // Act
             var result = await _dataLoader.GetDatasetsStatusAsync();
@@ -44,6 +56,31 @@ namespace DataSyncApi.Tests
             }
         }
 
+        /// <summary>
+        /// Тест на рандомную задержку
+        /// </summary>
+        /// <returns></returns>
+        [Test]
+        public async Task GetDatasetsStatusAsync_CheckElapsedTime()
+        {
+            // Arrange
+            var datasets = CreateDataSet();
+            var stopwatch = new Stopwatch();
+
+            // Act
+            stopwatch.Start();
+            var result = await _dataLoader.GetDatasetsStatusAsync();
+            stopwatch.Stop();
+
+            // Assert
+            Assert.That(result.Count, Is.EqualTo(datasets.Count));
+            Assert.True(stopwatch.Elapsed.TotalMinutes >= 2);
+        }
+
+        /// <summary>
+        /// Проверка при пустом списке датасет
+        /// </summary>
+        /// <returns></returns>
         [Test]
         public async Task GetDatasetsStatusAsync_ShouldReturnEmptyList_WhenNoDatasets()
         {
