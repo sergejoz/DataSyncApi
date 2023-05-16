@@ -1,7 +1,4 @@
-﻿using System;
-using System.Reflection;
-
-namespace DataSyncApi.Models
+﻿namespace DataSyncApi.Models
 {
     /// <summary>
     /// Набор данных

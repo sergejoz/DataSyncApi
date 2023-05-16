@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using DataSyncApi.Interfaces;
-using DataSyncApi.Models;
 
 namespace DataSyncApi.Controllers
 {

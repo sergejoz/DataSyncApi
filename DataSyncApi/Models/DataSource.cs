@@ -1,5 +1,4 @@
-﻿using System;
-namespace DataSyncApi.Models
+﻿namespace DataSyncApi.Models
 {
     /// <summary>
     /// Источник (бд)
