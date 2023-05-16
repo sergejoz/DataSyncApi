@@ -2,7 +2,7 @@
 namespace DataSyncApi.Models
 {
     /// <summary>
-    /// Источник
+    /// Источник (бд)
     /// </summary>
 	public class DataSource
 	{
