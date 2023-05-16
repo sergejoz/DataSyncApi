@@ -1,5 +1,4 @@
-﻿using System;
-using DataSyncApi.Models;
+﻿using DataSyncApi.Models;
 
 namespace DataSyncApi.Interfaces
 {
